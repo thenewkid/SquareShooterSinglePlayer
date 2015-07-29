@@ -222,10 +222,15 @@ var engine = function() {
 			startLevel();
 		}
 		else if (strikes <= 0) {
-			alert("you suck balls bro");
-			alert("giveee upp forever!!!!!");
-			while (true) {
-				alert("you can never winnnnn");
+			var playAgain = confirm("Would you like to play again?");
+			if (playAgain) {
+				clearTimeout(gameTimeout);
+				level = 1;
+				score = 0;
+				strikes = 20;
+				numberOfEnemies = 3;
+				enemies = createEnemies(numberOfEnemies);
+				startLevel();
 			}
 		}     
 	}
@@ -255,4 +260,3 @@ var engine = function() {
 	drawScreen();
 	startLevel();
 }
-
